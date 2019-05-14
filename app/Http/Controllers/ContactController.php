@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact; 
+use App\Http\Requests\ContactValidation;
 
 class ContactController extends Controller
 {
@@ -43,7 +44,7 @@ class ContactController extends Controller
         return view('contact.show', compact('contact')); 
     }    
 
-    public function store(Request $request)
+    public function store(ContactValidation $request)
     {
         Contact::create([
             'name' => $request->get('name'),
@@ -53,4 +54,12 @@ class ContactController extends Controller
 
         return \redirect()->back(); 
     }
+
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id); 
+        $contact->delete(); 
+
+        return redirect()->to('/contacts'); 
+    }    
 }

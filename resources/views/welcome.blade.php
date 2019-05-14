@@ -56,10 +56,13 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                 
             }
 
             .m-b-md {
                 margin-bottom: 30px;
+                color: hotpink;
+                text-shadow: 0 0 3px hotpink;
             }
         </style>
     </head>

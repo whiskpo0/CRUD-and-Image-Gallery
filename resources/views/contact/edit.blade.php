@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Edit Contacts</div>
             
-                <form action="{{ route('contact.store', [$contact->id]) }}" method="post">
+                <form action="{{ route('contact.update', [$contact->id]) }}" method="post">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

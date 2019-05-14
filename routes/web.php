@@ -16,12 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/contacts', 'ContactController@index'); 
-Route::get('/contacts/create', 'ContactController@create'); 
+Route::get('/contacts/create', 'ContactController@create')->name('contact.create'); 
 Route::post('/contacts', 'ContactController@store')->name('contact.store'); 
 Route::get('/contacts/{id}/edit', 'ContactController@edit')->name('contact.edit'); 
-Route::post('/contacts/{id}/store', 'ContactController@update')->name('contact.store'); 
+Route::post('/contacts/{id}/store', 'ContactController@update')->name('contact.update'); 
 Route::get('/contacts/{id}', 'ContactController@show')->name('contact.show'); 
+Route::post('/contacts/{id}/delete', 'ContactController@destroy')->name('contact.destroy'); 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/album', 'ImageController@index');
+Route::post('/album', 'ImageController@store')->name('album.store');
