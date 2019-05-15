@@ -1,23 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <form action="{{ route('album.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="album" class="form-control" placeholder="Your album name">                           
-            <input type="file" name="image[]" class="form-control">
-            <input type="file" name="image[]" class="form-control">
-            <input type="file" name="image[]" class="form-control">
-
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </form>
-
-        @foreach ($images as $image)
-            <img srcset="{{ asset('storage/'.$image->name) }}" class="img-thumbnail">
-        @endforeach
-    </div>
-</div> --}}
 
     <div class="container">
         <div class="row justify-content-center">
@@ -32,41 +15,42 @@
 
                 </div>
                 <div class="errMsg"></div>
+
                 <div class="card">
                     <div class="card-body">
-                    <form id="form" action="{{ route('album.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        
-                        <div class="form-group">
-                            <label for="">Name of Album</label>
-                            <input type="text" name="album" class="form-control" placeholder="Your album name">  
-                        </div>
-
-                        <div class="input-group control-group initial-add-more">
-                            <input type="file" name="image[]" class="form-control" id="image">
-                            <div class="input-group-btn">
-                                <button class="btn btn-success btn-add-more" type="button">
-                                    Add
-                                </button>
+                        <form id="form" action="{{ route('album.image') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            
+                            <div class="form-group">
+                                <label for="">Name of Album</label>
+                                <input type="text" name="album" class="form-control" placeholder="Your album name">  
                             </div>
-                        </div>
-                        <br>
-                        <div class="copy" style="display: none; ">
-                            <div class="input-group control-group add-more" style="margin-top: 12px;">
+
+                            <div class="input-group control-group initial-add-more">
                                 <input type="file" name="image[]" class="form-control" id="image">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-danger remove" type="button">
-                                        Remove
+                                    <button class="btn btn-success btn-add-more" type="button">
+                                        Add
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                            <br>
+                            <div class="copy" style="display: none; ">
+                                <div class="input-group control-group add-more" style="margin-top: 12px;">
+                                    <input type="file" name="image[]" class="form-control" id="image">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-danger remove" type="button">
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-success">Submit</button>
-                        </div>
+                            <div class="form-group">
+                                <button class="btn btn-success">Submit</button>
+                            </div>
 
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
